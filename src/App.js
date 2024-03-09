@@ -1,49 +1,28 @@
 import React, { Component } from "react";
 
 class App extends Component{
-
+  /* Configura um estado básico inicial */
   constructor(props){
     super(props);
-    this.state = {
-      nome: 'Matheus',
-      contador: 0
+    this.state ={
+      hora: '00:00:00'
     };
-
-    /* isto aqui não ficou claro! */
-    this.aumentar = this.aumentar.bind(this);
-    this.diminuir = this.diminuir.bind(this);
   }
 
-  aumentar(){
-    let state = this.state;
-    state.contador += 1;
-    state.nome = 'Jose';
-    this.setState({state});
-  }
+  /* Logo depois que o componente é criado */
+componentDidMount(){
+  setInterval(() => {
+    this.setState({ hora: new Date().toLocaleTimeString() })  
+  }, 1000);
+}
 
-  diminuir(){
-    let state = this.state;
-    if(state.contador === 0){
-      alert('Opa chegou a zero!');
-      return;
+    render(){
+      return(
+        <div>
+          <h3>Ciclo de Vida {this.state.hora} </h3>
+        </div>
+      );
     }
-
-    state.contador -= 1;
-    this.setState({state});
-  }
-
-  render(){
-    return(
-      <div>
-        <h1>Contador:</h1>
-        <h3>
-          <button onClick={this.diminuir}>-</button>
-          {this.state.contador}
-          <button onClick={this.aumentar}>+</button>
-        </h3>
-      </div>
-    );
-  }
 }
 
 export default App;
