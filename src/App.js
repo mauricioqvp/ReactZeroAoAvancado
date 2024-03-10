@@ -13,10 +13,15 @@ class App extends Component{
       ]
     }
   }
+  
+  componentDidMount(){
+    console.log('oi');
+  }
 
   render(){
     return(
       <div>
+        oi
             <Listagem dados="{this.state.feed}"/>
       </div>
     );
