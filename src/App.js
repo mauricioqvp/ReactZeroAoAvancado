@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Listagem from './components/Listagem'
 
 class App extends Component{
 
@@ -16,14 +17,7 @@ class App extends Component{
   render(){
     return(
       <div>
-        { this.state.feed.map((item) => {
-          return(
-            <div key={item.id}>
-              <strong>Usuário:</strong> {item.username}
-              <p><strong>comentários:</strong> {item.comentarios} <strong>curtidas:</strong> {item.curtidas}</p>
-            </div>
-          );
-        })}
+            <Listagem dados="{this.state.feed}"/>
       </div>
     );
   }
