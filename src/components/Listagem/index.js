@@ -4,9 +4,9 @@ class Listagem extends Component{
 
     render(props){
         return(
-            <div key={props.item.id}>
-                <strong>Usuário:</strong> {props.item.username}
-                <p><strong>comentários:</strong> {props.item.comentarios} <strong>curtidas:</strong> {props.item.curtidas}</p>
+            <div>
+                <strong>Usuário:</strong> {props.feed.id}
+                <p><strong>comentários:</strong> ola <strong>curtidas:</strong> até</p>
             </div>
         );
     }

@@ -17,7 +17,12 @@ class App extends Component{
   render(){
     return(
       <div>
-            <Listagem dados="{this.state.feed}"/>
+        { this.state.feed.map((item) => {
+          return(
+            <h2>{item.id}</h2>
+            //<Listagem dados="{item.id}"/>
+          )
+        })}
       </div>
     );
   }
