@@ -16,6 +16,10 @@ componentDidMount(){
   }, 1000);
 }
 
+componentDidUpdate(){
+  console.log('Atualizou!!');
+}
+
     render(){
       return(
         <div>
