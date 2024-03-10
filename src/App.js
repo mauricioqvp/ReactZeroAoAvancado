@@ -5,38 +5,25 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      logado: false,
-      usuario: 'Mauricio'
+      feed:[
+        {id: 1, username: 'Matheus', curtidas: 10, comentarios: 2},
+        {id: 2, username: 'Lucas', curtidas: 63, comentarios: 21},
+        {id: 3, username: 'Amanda', curtidas: 120, comentarios: 12}
+      ]
     }
-
-    this.entrar = this.entrar.bind(this);
-    this.sair = this.sair.bind(this);
-  }
-
-  entrar(){
-    console.log('Entrou no sistema!');
-    this.setState({logado: true});
-  }
-
-  sair(){
-    console.log('Saiu do sistema!');
-    this.setState({logado: false});
   }
 
   render(){
     return(
       <div>
-        {this.state.logado ?
-        <div>
-          <h2>Seja bem vindo ao sistema sr. {this.state.usuario}</h2>
-          <button onClick={this.sair}>Sair</button>
-        </div>
-          :
-        <div>
-          <h2>Você não está Logado</h2>
-          <button onClick={this.entrar}>Entrar</button>
-        </div>
-        }
+        { this.state.feed.map((item) => {
+          return(
+            <div key={item.id}>
+              <strong>Usuário:</strong> {item.username}
+              <p><strong>comentários:</strong> {item.comentarios} <strong>curtidas:</strong> {item.curtidas}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }
