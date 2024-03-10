@@ -5,15 +5,17 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      status: 1
+      status: false
     };
 }
 
     render(){
       return(
         <div>
-          {this.state.status === 1 &&
+          {this.state.status ? 
             <h2>Logado no sistema!</h2>
+            :
+            <h2>Por favor, faça seu Login</h2>
           }
           <div>
             <h2>Bem vindo</h2>
