@@ -2,11 +2,11 @@ import React, { Component } from "react";
 
 class Listagem extends Component{
 
-    render(props){
+    render(){
         return(
             <div>
-                <strong>Usuário:</strong> {props.feed.id}
-                <p><strong>comentários:</strong> ola <strong>curtidas:</strong> até</p>
+                <p>Código: {this.props.cod}, Usuário: {this.props.user}, {this.props.curtidas} { this.props.curtidas > 1 ? 'curtidas' : 'curtida'}</p>
+                <hr/>
             </div>
         );
     }

@@ -9,7 +9,8 @@ class App extends Component{
       feed:[
         {id: 1, username: 'Matheus', curtidas: 10, comentarios: 2},
         {id: 2, username: 'Lucas', curtidas: 63, comentarios: 21},
-        {id: 3, username: 'Amanda', curtidas: 120, comentarios: 12}
+        {id: 3, username: 'Amanda', curtidas: 120, comentarios: 12},
+        {id: 4, username: 'Amanda', curtidas: 1, comentarios: 0}
       ]
     }
   }
@@ -19,8 +20,9 @@ class App extends Component{
       <div>
         { this.state.feed.map((item) => {
           return(
-            <h2>{item.id}</h2>
-            //<Listagem dados="{item.id}"/>
+            <>
+              <Listagem cod={item.id} user={item.username} curtidas={item.curtidas} />
+            </>
           )
         })}
       </div>
