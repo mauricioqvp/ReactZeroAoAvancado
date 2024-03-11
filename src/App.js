@@ -2,18 +2,51 @@ import React, { Component } from "react";
 import Listagem from './components/Listagem'
 // https://youtu.be/gcOhd8rvBOc?si=ycQoFsnGbywfwUu4
 // Video sobre Git Merge - muito bom
+import "./css/styles.css";
 
 class App extends Component{
 
   constructor(props){
     super(props);
     this.state = {
-      feed:[
-        {id: 1, username: 'Matheus', curtidas: 10, comentarios: 2},
-        {id: 2, username: 'Lucas', curtidas: 63, comentarios: 21},
-        {id: 3, username: 'Amanda', curtidas: 120, comentarios: 12}
-      ]
+      numero: 0,
+      botao: 'VAI'
+    };
+
+    this.timer = null;
+    this.vai = this.vai.bind(this);
+    this.limpar = this.limpar.bind(this);
+  }
+
+  vai(){
+    let state = this.state;
+
+    if(this.timer !== null){
+      clearInterval(this.timer);
+      this.timer = null;
+      state.botao = 'VAI';
+    }else{
+      this.timer = setInterval(() => {
+        let state = this.state;
+        state.numero += 0.1;
+        this.setState(state);
+      },100);
+      state.botao = 'PAUSA';
     }
+
+    this.setState(state);
+  }
+
+  limpar(){
+    if(this.timer !== null){
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+
+    let state = this.state;
+    state.numero = 0;
+    state.botao = 'VAI';
+    this.setState(state);
   }
   
   componentDidMount(){
@@ -22,10 +55,20 @@ class App extends Component{
 
   render(){
     return(
+<<<<<<< HEAD
       <div>
         oi
             <Listagem dados="{this.state.feed}"/>
+=======
+    <div className="container">
+      <img src={require('./assets/cronometro.png')} className="img" />
+      <a className="timer" >{this.state.numero.toFixed(1)}</a>
+      <div className="areaBtn" >
+        <a className="botao" onClick={this.vai}>{this.state.botao}</a>
+        <a className="botao" onClick={this.limpar}>LIMPAR</a>
+>>>>>>> novabranch
       </div>
+    </div>
     );
   }
 }
