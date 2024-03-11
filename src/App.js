@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Listagem from './components/Listagem'
+// https://youtu.be/gcOhd8rvBOc?si=ycQoFsnGbywfwUu4
+// Video sobre Git Merge - muito bom
 
 class App extends Component{
 
